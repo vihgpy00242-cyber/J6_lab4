@@ -1,0 +1,13 @@
+<html th:fragment="view(title, content)" >
+<head>
+<title th:replace="${title}">TITLE</title>
+</head>
+<body>
+<header th:text="#{header.name}"><h1>Online Shopping</h1></header>
+<nav th:replace="~{/form/menu}">MENU</nav>
+<article th:replace="${content}">CONTENT</article>
+<footer th:utext="#{footer.copy}">
+<hr>&copy; 2024 by FPT Polytechnic. All rights reserved.
+</footer>
+</body>
+</html>

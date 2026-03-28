@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+p{color: red}</style>
+</head>
+<body>
+<h1 th:text="${messege}" style="color: blue" ></h1>
+<form th:object="${staff}" action="/staff/save" method="post" enctype="multipart/form-data">
+Email : <input th:field="*{id}"><p th:errors="*{id}"></p><hr>
+Ho va ten <input th:field="*{fullname}"><p th:errors="*{fullname}"></p><hr>
+Gioi tinh : 
+<input type="radio" th:field="*{gender}" value="true">Nam
+<input type="radio" th:field="*{gender}" value="false">Nữ <hr>
+<p th:errors="*{gender}"></p>
+Ngày sinh: 
+<input name="birthday"
+th:value="*{#dates.format(birthday, 'MM/dd/yyyy')}">
+<i th:errors="*{birthday}"></i><hr>
+Hình ảnh :    
+ <input type="file" name="photo_file">
+<hr> <p th:errors="*{photo}"></p><hr>
+Cấp bật
+<select  th:field="*{level}">
+<option value="0">Úy</option>
+<option value="1">Tá</option>
+<option value="2">Tướng</option>
+</select><hr><p th:errors="*{level}"></p><hr>
+Salary: <input th:field="*{salary}"><hr><p th:errors="*{salary}"></p><hr>
+<p>[[${message}]]</p>
+<button>Create</button>
+</form>
+</body>
+</html>
